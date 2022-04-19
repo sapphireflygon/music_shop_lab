@@ -8,13 +8,13 @@ artist1 = Artist("Queen")
 album1 = Album("A Night at the Opera", "Rock", artist1)
 album2 = Album("A Day at the Races", "Rock", artist1)
 
+
 artist_repository.save(artist1)
 album_repository.save(album2)
 album_repository.save(album1)
 
-album_repository.delete_all()
-artist_repository.delete_all()
-
+# album_repository.delete_all()
+# artist_repository.delete_all()
 
 album_repository.select_all()
 artist_repository.select_all()
