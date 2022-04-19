@@ -4,8 +4,9 @@ from models.album import Album
 from repositories import artist_repository
 
 def save(album):
-    sql = "INSERT INTO albums (title, genre, artist) VALUES (%s, %s, %s) RETURNING *"
+    sql = "INSERT INTO albums (title, genre, artist_id) VALUES (%s, %s, %s) RETURNING *"
     values = [album.title, album.genre, album.artist.id]
+    print(album.artist.id)
     results = run_sql(sql, values)
     id = results[0]['id']
     album.id = id
@@ -47,7 +48,7 @@ def delete(id):
 
 
 def update(album):
-    sql = "UPDATE albums SET (title, genre, artist) VALUES (%s, %s, %s) WHERE id=%s"
+    sql = "UPDATE albums SET (title, genre, artist_id) VALUES (%s, %s, %s) WHERE id=%s"
     values = [album.title, album.genre, album.artist.id, album.id]
     run_sql(sql, values)
 
