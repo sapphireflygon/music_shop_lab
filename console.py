@@ -9,3 +9,4 @@ album1 = Album("A Night at the Opera", "Rock", artist1)
 
 album_repository.save(album1)
 artist_repository.save(artist1)
+

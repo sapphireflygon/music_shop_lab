@@ -40,3 +40,10 @@ def delete(id):
     sql = "DELETE  FROM tasks WHERE id = %s" 
     values = [id]
     run_sql(sql, values)
+
+
+def update(artist):
+    sql = "UPDATE artists SET (name) VALUES (%s) WHERE id=%s"
+    values = [artist.name, artist.id]
+    run_sql(sql, values)
+
