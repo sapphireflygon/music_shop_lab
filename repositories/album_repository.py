@@ -11,6 +11,7 @@ def save(album):
     album.id = id
     return album
 
+
 def select_all():
     albums = []
     sql = "SELECT * FROM albums"
@@ -20,6 +21,7 @@ def select_all():
         album = Album(row['title'], row['genre'], artist, row['id'])
         albums.append(album)
     return albums
+
 
 def select(id):
     album = None
@@ -32,3 +34,13 @@ def select(id):
         album = Album(result['title'], result['genre'], artist, result['id'])
     return album
 
+
+def delete_all():
+    sql = "DELETE  FROM tasks" 
+    run_sql(sql)
+
+
+def delete(id):
+    sql = "DELETE  FROM tasks WHERE id = %s" 
+    values = [id]
+    run_sql(sql, values)
